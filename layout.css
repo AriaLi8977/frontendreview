@@ -1,0 +1,62 @@
+*{
+    margin:0;
+    padding:0;
+}
+/*1. FLEX 单行单列 容器默认均匀平分在这行或列*/
+/*flex框架的展示*/
+.flex-container{
+    width: 100%;
+    max-width:800px;
+    min-width:500px;
+    margin:0 auto;
+    background-color: antiquewhite;
+    height:500px;
+    /*下面这三行决定内部元素在flexbox里的位置*/
+    display:flex;
+    /*flex-start默认，flex-end代表在flexbox轴的起始和结束位置
+    align-items: center;
+    justify-content:center; */
+}
+/*内部元素*/
+.flex-item{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    background:#f9f9f9;
+    /*不设置最大尺寸时，flexitem默认在flexbox里撑开到最大
+    max-height: 400px;
+    max-width:200px;*/
+    flex:1 /*在flexbox中占的比例*/
+}
+
+/*第an+b个元素，n=0,1,2...*/
+.flex-item:nth-child(2){
+    flex:3;
+    min-width: 251px;
+}
+
+.flex-item:nth-child(2n+1){ /*单数*/
+    width:200px;/*最大展现宽度，页面太小也可能被压缩*/
+}
+
+/*2.GRID */
+.grid-container{
+    display:grid;
+    /*设置元素在grid中占比或大小*/
+    /* grid-template-columns: 200px 300px 200px; */
+    /* grid-template-columns: 20% 50% 30%; */
+    /* grid-template-columns: 1fr 1fr 1fr; fr是比例单位fraction */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: repeat(auto-fill, 200px); 自适应*/
+    grid-template-columns: 300px auto 300px;
+    height:600px;
+    grid-template-rows: 1fr 2fr;/*同columns*/
+}
+
+.grid-item{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    background-color: #f9f9f9;
+    overflow:hidden/*超出grid高度的内会被切掉，可用省略号或更多跳转*/
+}

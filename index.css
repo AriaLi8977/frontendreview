@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.box{
+/*1. SIZE*/
+    width: 500px;/*100%宽度=父元素宽度，显示时加上padding超出屏幕*/
+    height: 300px;/*如果内容超出最大值，可能会和下面的元素重合*/
+    border: 3px dotted grey; 
+    border-radius:10px; /*边框设置圆角*/
+    padding:10px 20px; /*border和内容中间的距离（上下右左）*/
+    /*保证所有元素一直在窗口内*/
+    box-sizing:border-box; 
+    /*元素一直左右居中*/
+    margin:0 auto; 
+
+/*2. BACKGROUND*/
+    background-color: #f9f9f9;
+    /*background-image: url(.bg.jpg); 背景图和颜色只生效一个*/
+    box-shadow: 5px 5px 5px grey;/*右，下，晕染的范围，颜色*/
+
+    position:relative; /*对自己无影响，是内部元素的定位参考*/
+}
+
+/*3. TEXT*/
+.box p{
+    color:#666;
+    text-indent:2em; /*首行缩进，em代表当前文字的大小*/
+}
+
+.box h1{
+    font-size: 50px;
+    font-family:"sans-serif";
+    font-weight: normal; /*normal(weight=400)是默认值*/
+    /*文字左右居中*/
+    text-align:center; 
+    /*文字上下居中*/
+    height:130px;
+    line-height:130px; /*调整行高和元素高度匹配*/
+    
+    text-shadow:2px 2px 2px black; 
+    text-decoration: dashed underline skyblue;
+}
+
+.box span{
+    color:orange;
+    writing-mode:vertical-lr;/*中文竖直显示，英文仅整行旋转*/
+    text-orientation: upright;/*字母旋转*/
+
+/*4. POSITIONING*/
+    /*绝对定位，参考物body*/
+    position: absolute;
+    /*相对定位，参考物父元素，见行23*/
+    /*fixed定位，参考物屏幕，用于侧边栏导航
+    position:fixed*/
+    top:50px;
+    left:5px;
+}
